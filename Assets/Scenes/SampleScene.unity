@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 1026254505}
   - component: {fileID: 1026254504}
   - component: {fileID: 1026254508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,12 +434,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1026254503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ed4b4e02d770c40835536f1e857380, type: 3}
+  m_Script: {fileID: 11500000, guid: 29211a66fcae4a046b08f742f3c6d813, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  moveForce: 20
-  maxSpeed: 6
-  jumpForce: 64
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementTest
+  speed: 5
+  jumpingPower: 16
+  rb: {fileID: 1026254504}
+  groundCheck: {fileID: 1177835369}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1177835368
 GameObject:
   m_ObjectHideFlags: 0
