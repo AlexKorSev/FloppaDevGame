@@ -26,6 +26,16 @@ public class PlayerTeleport : MonoBehaviour
         }
     }
 
+    // Для затухания экрана
+    async void FadeTransition()
+    {
+        await ScreenFader.Instance.FadeOut();
+
+        
+
+        await ScreenFader.Instance.FadeIn();
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Teleporter"))
