@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementDeprecated : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveForce = 50f;   // сила движения
