@@ -3612,7 +3612,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 8
-  jumpingPower: 16
+  jumpingPower: 8
+  jumpAbility: 0
   rb: {fileID: 1135601789}
   groundCheck: {fileID: 1361950607}
   groundLayer:

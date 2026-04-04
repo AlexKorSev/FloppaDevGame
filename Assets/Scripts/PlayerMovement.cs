@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float speed = 6f;
+    public float jumpingPower = 10f;
+    public bool jumpAbility;
 
-    private float horizontal;
-    public float speed = 5f;
-    public float jumpingPower = 15f;
     private bool isFacingRight = true;
+    private bool doubleJump;
+    private float horizontal;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -23,17 +25,42 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        DoJumping();
+        
+        Flip();
+    }
+
+    private void DoJumping()
+    {
+        // Реализация прыжков
+        if (isGrounded() && !Input.GetButton("Jump") && jumpAbility)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+            doubleJump = false;
         }
 
-        if (Input.GetButtonDown("Jump") && rb.linearVelocity.y > 0f)
+        if (Input.GetButtonDown("Jump") && jumpAbility)
+        {
+            if (isGrounded() || doubleJump)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+
+                doubleJump = !doubleJump;
+            }
+        }
+
+        if (Input.GetButtonDown("Jump") && !jumpAbility)
+        {
+            if (isGrounded())
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+            }
+        }
+
+        // Снижение высоты прыжков
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
-        
-        Flip();
     }
 
     private void FixedUpdate()
@@ -48,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        // Отзеркаливание спрайта в зависимости от напрвления
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
