@@ -73,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    public bool canAttack()
+    {
+        return horizontal == 0;
+    }
+
     private void Flip()
     {
         // Отзеркаливание спрайта в зависимости от напрвления
