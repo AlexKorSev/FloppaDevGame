@@ -21,6 +21,8 @@ public class Damage : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
+            collision.gameObject.GetComponent<PlayerHealth>().hit = true;
+
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -35,9 +37,9 @@ public class Damage : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
         }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
-        }
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
+        //}
     }
 }
