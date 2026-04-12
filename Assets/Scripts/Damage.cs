@@ -37,9 +37,9 @@ public class Damage : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
         }
-        //if (collision.gameObject.CompareTag("Enemy"))
-        //{
-        //    collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
-        //}
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
+        }
     }
 }
