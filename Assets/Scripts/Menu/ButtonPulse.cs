@@ -16,6 +16,10 @@ public class ButtonPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public AudioClip hoverSound; // Сюда класть файл звука
     private AudioSource audioSource;
 
+    [Header("Защита от раннего звука")]
+    public float ignoreInputDuration = 5f; // Сколько секунд игнорировать наведение
+    private float scriptStartTime;
+
     private Vector3 originalScale;
     private bool isHovering = false;
     private float timeHoverStarted;
@@ -24,11 +28,11 @@ public class ButtonPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Start()
     {
+        // Запоминаем время, когда скрипт начал работу
+        scriptStartTime = Time.time;
+
         audioSource = GetComponent<AudioSource>();
-
-        // Вместо transform.localScale пишем 1.5 вручную
         originalScale = new Vector3(1.5f, 1.5f, 1.5f);
-
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null) buttonText.color = normalColor;
     }
@@ -55,13 +59,17 @@ public class ButtonPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         isHovering = true;
         timeHoverStarted = Time.time;
 
-        // играем звук:
+        // Если с момента старта прошло меньше n секунд — выходим и не играем звук
+        if (Time.time - scriptStartTime < ignoreInputDuration)
+        {
+            return; 
+        }
+
+        // код звука
         if (audioSource != null && hoverSound != null)
         {
             audioSource.pitch = Random.Range(0.8f, 1.1f);
-            // PlayOneShot лучше обычного Play, так как он не прерывает звук, 
-            // если вы быстро водите мышкой туда-сюда
-            audioSource.PlayOneShot(hoverSound, 0.8f);
+            audioSource.PlayOneShot(hoverSound, 0.4f);
         }
     }
 
