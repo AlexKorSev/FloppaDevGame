@@ -274,6 +274,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 0}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!1 &190559505
 GameObject:
@@ -428,6 +429,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 8300000, guid: fd1968a4ad6ee9d4390ffdc77f6f9653, type: 3}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!225 &190559511
 CanvasGroup:
@@ -680,7 +682,7 @@ MonoBehaviour:
   - {fileID: 190559506}
   - {fileID: 1686609769}
   duration: 1
-  delayBetweenButtons: 0.5
+  delayBetweenButtons: 0.4
   startDelay: 1
   appearSound: {fileID: 8300000, guid: 6b319589c8deadd4ba42a9baa0d35fd4, type: 3}
 --- !u!1 &714208779
@@ -911,6 +913,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 8300000, guid: fd1968a4ad6ee9d4390ffdc77f6f9653, type: 3}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!225 &945598666
 CanvasGroup:
@@ -1174,6 +1177,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 8300000, guid: fd1968a4ad6ee9d4390ffdc77f6f9653, type: 3}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!225 &1108626786
 CanvasGroup:
@@ -1711,6 +1715,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 8300000, guid: fd1968a4ad6ee9d4390ffdc77f6f9653, type: 3}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!225 &1686609774
 CanvasGroup:
@@ -2083,6 +2088,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 0}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!1 &1895215200
 GameObject:
@@ -2376,6 +2382,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 0.698, b: 0, a: 1}
   highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
   hoverSound: {fileID: 0}
+  soundCooldown: 0.1
   ignoreInputDuration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
