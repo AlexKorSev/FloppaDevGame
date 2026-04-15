@@ -15,6 +15,8 @@ public class ButtonPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [Header("Звуковые эффекты")]
     public AudioClip hoverSound; // Сюда класть файл звука
     private AudioSource audioSource;
+    public float soundCooldown = 0.1f; // Интервал между звуками
+    private static float _lastSoundPlayTime; // Общая переменная для всех кнопок
 
     [Header("Защита от раннего звука")]
     public float ignoreInputDuration = 5f; // Сколько секунд игнорировать наведение
@@ -59,16 +61,17 @@ public class ButtonPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         isHovering = true;
         timeHoverStarted = Time.time;
 
-        // Если с момента старта прошло меньше n секунд — выходим и не играем звук
-        if (Time.time - scriptStartTime < ignoreInputDuration)
-        {
-            return; 
-        }
+        if (Time.time - scriptStartTime < ignoreInputDuration) return;
 
-        // код звука
+        // Если с момента последнего звука прошло слишком мало времени — выходим
+        if (Time.time - _lastSoundPlayTime < soundCooldown) return;
+
         if (audioSource != null && hoverSound != null)
         {
-            audioSource.pitch = Random.Range(0.8f, 1.1f);
+            // ОБЯЗАТЕЛЬНО: Обновляем время последнего звука для всех кнопок
+            _lastSoundPlayTime = Time.time;
+
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
             audioSource.PlayOneShot(hoverSound, 0.4f);
         }
     }
