@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
-    SpriteRenderer renderer;
+
+    private bool isPressed;
+    private SpriteRenderer spriteRend;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        isPressed = false;
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -17,11 +20,18 @@ public class SwitchController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        renderer.color = Color.aliceBlue;
+        isPressed = true;
+        spriteRend.color = Color.aliceBlue;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        renderer.color = new Color(0, 0, 225, 255);
+        isPressed = false;
+        spriteRend.color = new Color(0, 0, 225, 255);
+    }
+
+    public bool IsPressed()
+    {
+        return isPressed;
     }
 }
