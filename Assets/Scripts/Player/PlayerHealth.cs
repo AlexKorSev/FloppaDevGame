@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float maxHealth;
     public bool hit;
+
+    private Vector2 checkPoint;
     [SerializeField] private Image healthBar;
 
     [Header("IFrames")]
@@ -15,12 +17,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
 
     private SpriteRenderer spriteRend;
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         maxHealth = health;
+        checkPoint = transform.position;
         spriteRend = GetComponent<SpriteRenderer>();
     }
 
@@ -36,12 +38,22 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Eliminate();
         }
         if (health > maxHealth)
         {
             health = maxHealth;
         }
+    }
+
+    void Eliminate()
+    {
+        StartCoroutine(Respawn(0.5f));
+    }
+
+    public void UpdateCheckpoint(Vector2 point)
+    {
+        checkPoint = point;
     }
 
     private IEnumerator Invincibility()
@@ -56,5 +68,14 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(7, 8, false);
+    }
+
+    private IEnumerator Respawn(float duration)
+    {
+        spriteRend.enabled = false;
+        yield return new WaitForSeconds(duration);
+        transform.position = checkPoint;
+        health = maxHealth;
+        spriteRend.enabled = true;
     }
 }
