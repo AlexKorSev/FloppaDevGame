@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8234203425646963095}
   - component: {fileID: 8668444661031721904}
   - component: {fileID: 4276165588203084382}
+  - component: {fileID: 6605154774497672558}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -337,6 +338,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &6605154774497672558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036374026413316999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edd7ec5aac3e084999ad45c39e37f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrabbing
+  pickedUp: 0
+  grabDetect: {fileID: 0}
+  boxHolder: {fileID: 0}
+  rayDist: 2
 --- !u!1 &6152404978726629304
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Stats")]
     public float speed = 6f;
     public float jumpingPower = 10f;
     public bool jumpAbility;
