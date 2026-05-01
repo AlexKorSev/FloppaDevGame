@@ -15,37 +15,51 @@ public class PlayerGrabbing : MonoBehaviour
     {
         RaycastHit2D rayCheck = Physics2D.Raycast(firePoint.position, Vector2.right, rayDist);
 
-        if (rayCheck.collider != null && rayCheck.collider.tag == "Box")
+        if (rayCheck.collider != null && rayCheck.collider.CompareTag("Box"))
         {
             if (Input.GetButton("Fire2") && grabbedObject == null)
             {
                 if (!keyPressed)
                 {
-                    grabbedObject = rayCheck.collider.gameObject;
-                    grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                    grabbedObject.transform.position = boxHolder.position;
-                    grabbedObject.transform.SetParent(transform);
+                    GrabBox(rayCheck);
 
                     keyPressed = true;
                 }
-            }
-
-            else if (Input.GetButton("Fire2"))
-            {
-                if (!keyPressed)
-                {
-                    grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    grabbedObject.transform.SetParent(null);
-                    grabbedObject = null;
-
-                    keyPressed = true;
-                }
-            }
-
-            else
-            {
-                keyPressed = false;
             }
         }
+        else if (Input.GetButton("Fire2") && grabbedObject != null)
+        {
+            if (!keyPressed)
+            {
+                LetGoBox();
+
+                keyPressed = true;
+            }
+        }
+        else
+        {
+            keyPressed = false;
+        }
+    }
+
+    private void GrabBox(RaycastHit2D rayCheck)
+    {
+        grabbedObject = rayCheck.collider.gameObject;
+        grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        grabbedObject.GetComponent<BoxCollider2D>().enabled = false;
+        grabbedObject.transform.position = boxHolder.position;
+        grabbedObject.transform.SetParent(transform);
+
+        boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    private void LetGoBox()
+    {
+        grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        grabbedObject.GetComponent<BoxCollider2D>().enabled = true;
+        grabbedObject.transform.SetParent(null);
+        grabbedObject = null;
+
+        boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 }

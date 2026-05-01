@@ -3496,7 +3496,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1443788767
 BoxCollider2D:
@@ -3892,22 +3892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3050515659228881176, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.2857144
-      objectReference: {fileID: 0}
     - target: {fileID: 4276165588203084382, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
       propertyPath: 'projectiles.Array.data[0]'
       value: 
       objectReference: {fileID: 534743258}
-    - target: {fileID: 5821494860217425942, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821494860217425942, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000000993407
-      objectReference: {fileID: 0}
     - target: {fileID: 6090389571317871055, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
