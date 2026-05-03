@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     private bool doubleJump;
     private float horizontal;
+    private Animator anim;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,17 @@ public class PlayerMovement : MonoBehaviour
         DoJumping();
         
         Flip();
+
+        if (horizontal != 0)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+        anim.SetBool("isJumping", !isGrounded());
     }
 
     private void DoJumping()
