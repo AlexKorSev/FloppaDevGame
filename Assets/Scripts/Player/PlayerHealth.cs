@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         // duration
         for (int i = 0; i < numberOfFlashes; i++)
         {
-            spriteRend.color = Color.darkRed;
+            spriteRend.color = new Color(10, 10, 10, 0.5f);
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));

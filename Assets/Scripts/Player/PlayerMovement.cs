@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     public float jumpingPower = 10f;
     public bool jumpAbility;
+    public bool attackAbility;
 
     private bool isFacingRight = true;
     private bool doubleJump;
@@ -91,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canAttack()
     {
-        return horizontal == 0;
+        return horizontal == 0 && attackAbility;
     }
 
     private void Flip()

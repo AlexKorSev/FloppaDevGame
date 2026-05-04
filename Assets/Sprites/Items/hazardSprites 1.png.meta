@@ -166,7 +166,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hazardSprites 1_2
+      name: enemy_idle1
       rect:
         serializedVersion: 2
         x: 114
@@ -188,7 +188,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hazardSprites 1_3
+      name: spikes
       rect:
         serializedVersion: 2
         x: 219
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      enemy_idle1: -926298943859376512
       hazardSprites 1_0: -5372017322201174891
       hazardSprites 1_1: 3991210449572935344
-      hazardSprites 1_2: -926298943859376512
-      hazardSprites 1_3: -4862100994961850389
+      spikes: -4862100994961850389
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

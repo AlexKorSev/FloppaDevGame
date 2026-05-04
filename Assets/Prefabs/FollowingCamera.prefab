@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6042266626937937815}
   - component: {fileID: 5528505124288442004}
   - component: {fileID: 644656046577649708}
+  - component: {fileID: 2886123555623201583}
   m_Layer: 0
   m_Name: FollowingCamera
   m_TagString: Untagged
@@ -146,3 +147,23 @@ MonoBehaviour:
   Offset: {x: -0, y: 0.25, z: 0}
   ApplyAfter: 1
   PreserveComposition: 0
+--- !u!114 &2886123555623201583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068282833711434084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
+  BoundingShape2D: {fileID: 0}
+  Damping: 1
+  SlowingDistance: 10
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
