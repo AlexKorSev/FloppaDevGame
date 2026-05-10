@@ -5,9 +5,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Stats")]
     public float speed = 6f;
-    public float jumpingPower = 10f;
+    public float jumpingPower = 12f;
     public bool jumpAbility;
     public bool attackAbility;
+    [SerializeField] private AudioSource jumpSound;
 
     private bool isFacingRight = true;
     private bool doubleJump;
@@ -48,8 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void DoJumping()
     {
-
-        // Реализация прыжков
         if (isGrounded() && !Input.GetButton("Jump") && jumpAbility)
         {
             doubleJump = false;
@@ -60,8 +59,21 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded() || doubleJump)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-
                 doubleJump = !doubleJump;
+
+                // Вставляем звук здесь
+                PlayJumpSound();
+            }
+        }
+
+        if (Input.GetButtonDown("Jump") && !jumpAbility)
+        {
+            if (isGrounded())
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+
+                // И здесь
+                PlayJumpSound();
             }
         }
 
@@ -104,6 +116,15 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void PlayJumpSound()
+    {
+        if (jumpSound != null)
+        {
+            jumpSound.pitch = Random.Range(0.85f, 1.15f); // Тот самый разный звук
+            jumpSound.PlayOneShot(jumpSound.clip);
         }
     }
 }
