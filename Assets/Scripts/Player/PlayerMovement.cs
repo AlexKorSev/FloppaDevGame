@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Stats")]
     public float speed = 6f;
-    public float jumpingPower = 12f;
+    public float jumpingPower = 8f;
     public bool jumpAbility;
     public bool attackAbility;
     [SerializeField] private AudioSource jumpSound;
@@ -74,14 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
                 // И здесь
                 PlayJumpSound();
-            }
-        }
-
-        if (Input.GetButtonDown("Jump") && !jumpAbility)
-        {
-            if (isGrounded())
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
             }
         }
 

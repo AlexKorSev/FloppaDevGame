@@ -9,12 +9,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform currentPoint;
     [SerializeField] private float speed = 3f;
+    [SerializeField] private float stayTimer;
+
+    private Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
+        anim = GetComponent<Animator>();
+        anim.SetBool("isWalking", true);
     }
 
     //private void FixedUpdate()
@@ -33,6 +38,9 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(-speed, 0);
         }
+
+        // Для остановок
+        //cooldownTimer += Time.deltaTime;
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
         {
