@@ -20,14 +20,14 @@ public class GateController : MonoBehaviour
         isOpen = ownSwitch.GetComponent<SwitchController>().IsPressed();
         gateCollider.enabled = !isOpen;
 
-        if (isOpen)
-        {
-            spriteRend.color = Color.clear;
-        }
-        if (!isOpen)
-        {
-            spriteRend.color = Color.purple;
-        }
+        //if (isOpen)
+        //{
+        //    spriteRend.color = Color.clear;
+        //}
+        //if (!isOpen)
+        //{
+        //    spriteRend.color = Color.purple;
+        //}
     }
 
     private void FixedUpdate()
