@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     private Vector2 checkPoint;
     [SerializeField] private Image healthBar;
+    [SerializeField] private Image totalHealthBar;
 
     [Header("IFrames")]
     [SerializeField] private float iFramesDuration;
@@ -24,12 +25,14 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = health;
         checkPoint = transform.position;
         spriteRend = GetComponent<SpriteRenderer>();
+
+        totalHealthBar.fillAmount = health / (7 * 20);
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        healthBar.fillAmount = health / (7 * 20);
 
         if (hit)
         {

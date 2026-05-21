@@ -691,17 +691,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6510732027544668205, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
   m_PrefabInstance: {fileID: 8925043368489846796}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &446207429 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6477179962877913970, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
-  m_PrefabInstance: {fileID: 6775417476265497438}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &456341087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1474,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000071ac620efbd73542cda9344c61f42108
+  m_ApplyToSortingLayers: 0000000071ac620efbd73542cda9344c61f42108f118344d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3369,6 +3358,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1376991384545248323, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
   m_PrefabInstance: {fileID: 8925043368489846796}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1067972597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7744556594907154867, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+  m_PrefabInstance: {fileID: 6775417476265497438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1103609360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6904386291895085036, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+  m_PrefabInstance: {fileID: 6775417476265497438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &1135601791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6090389571317871055, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
@@ -3553,6 +3564,63 @@ Transform:
   - {fileID: 973258768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1925700780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 157717716509669161, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_Name
+      value: BrokenWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.3005433
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.052948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156695662732523956, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5347d04f0fdf36e4e8d6215d943715a6, type: 3}
 --- !u!1 &1950047005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7057822072707509053, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
@@ -3809,7 +3877,11 @@ PrefabInstance:
     - target: {fileID: 8234203425646963095, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 446207429}
+      objectReference: {fileID: 1067972597}
+    - target: {fileID: 8234203425646963095, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
+      propertyPath: totalHealthBar
+      value: 
+      objectReference: {fileID: 1103609360}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3884,9 +3956,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1808426311560875919, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208428165591678536, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_Name
+      value: HealthBarCurrentOld
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208428165591678536, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835036566503401572, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6310886391577801723, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477179962877913970, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6793827651244041136, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_fontSize
@@ -4215,3 +4307,4 @@ SceneRoots:
   - {fileID: 8592348445809058960}
   - {fileID: 1409671046}
   - {fileID: 1719937434362312983}
+  - {fileID: 1925700780}
