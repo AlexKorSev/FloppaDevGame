@@ -292,6 +292,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4631721272190682777}
     m_Modifications:
+    - target: {fileID: 3165840159638939915, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165840159638939915, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.34375
+      objectReference: {fileID: 0}
     - target: {fileID: 3444243389525930293, guid: cd2c84530d1111a4190073965d57e009, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.10802007
@@ -335,6 +343,22 @@ PrefabInstance:
     - target: {fileID: 4638173132399217578, guid: cd2c84530d1111a4190073965d57e009, type: 3}
       propertyPath: m_Name
       value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687347759128730530, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8689133722901048098, guid: 6f0ed3d7717e2764d9592a86cc524277, type: 3}
+    - target: {fileID: 8687347759128730530, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687347759128730530, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687347759128730530, guid: cd2c84530d1111a4190073965d57e009, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

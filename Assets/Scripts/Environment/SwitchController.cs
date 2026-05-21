@@ -21,13 +21,13 @@ public class SwitchController : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         isPressed = true;
-        spriteRend.color = Color.aliceBlue;
+        //spriteRend.color = Color.aliceBlue; —ƒ≈À¿“‹ —Ã≈Õ” —œ–¿…“¿
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         isPressed = false;
-        spriteRend.color = new Color(0, 0, 225, 255);
+        spriteRend.color = Color.white;
     }
 
     public bool IsPressed()

@@ -20,7 +20,7 @@ public class CheckPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerHealth.UpdateCheckpoint(respawnPoint.position);
-            spriteRend.color = Color.green;
+            //spriteRend.color = Color.green; ядекюрэ ялемс яопюирю
             coll.enabled = false;
         }
     }

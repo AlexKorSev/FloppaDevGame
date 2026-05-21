@@ -686,6 +686,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &287736485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6510732027544668205, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
+  m_PrefabInstance: {fileID: 8925043368489846796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &446207429 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6477179962877913970, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
@@ -3359,6 +3364,11 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 973258767}
+--- !u!1 &1006220916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1376991384545248323, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
+  m_PrefabInstance: {fileID: 8925043368489846796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1135601791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6090389571317871055, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
@@ -3543,6 +3553,16 @@ Transform:
   - {fileID: 973258768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1950047005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7057822072707509053, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
+  m_PrefabInstance: {fileID: 8925043368489846796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2020372321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7549431892030651867, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
+  m_PrefabInstance: {fileID: 8925043368489846796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &878046425689044949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3730,6 +3750,22 @@ PrefabInstance:
       propertyPath: 'projectiles.Array.data[0]'
       value: 
       objectReference: {fileID: 534743258}
+    - target: {fileID: 4276165588203084382, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
+      propertyPath: 'projectiles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1950047005}
+    - target: {fileID: 4276165588203084382, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
+      propertyPath: 'projectiles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 287736485}
+    - target: {fileID: 4276165588203084382, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
+      propertyPath: 'projectiles.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2020372321}
+    - target: {fileID: 4276165588203084382, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
+      propertyPath: 'projectiles.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1006220916}
     - target: {fileID: 6090389571317871055, guid: c37b430439d030f4daad4ac32cce7941, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -3851,6 +3887,10 @@ PrefabInstance:
     - target: {fileID: 6310886391577801723, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793827651244041136, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_fontSize
+      value: 56.2
       objectReference: {fileID: 0}
     - target: {fileID: 8486165653645302518, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_Pivot.x
@@ -4100,6 +4140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3991793035294431130, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4631721272190682777, guid: d78b3f04666658a429a84123ea508c9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
