@@ -5,6 +5,7 @@ public class SwitchController : MonoBehaviour
 
     private bool isPressed;
     private SpriteRenderer spriteRend;
+    [SerializeField] private Sprite[] sprites;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +16,14 @@ public class SwitchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isPressed)
+        {
+            spriteRend.sprite = sprites[1];
+        }
+        else
+        {
+            spriteRend.sprite = sprites[0];
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
