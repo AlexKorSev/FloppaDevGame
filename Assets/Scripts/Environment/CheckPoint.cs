@@ -8,6 +8,8 @@ public class CheckPoint : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Collider2D coll;
 
+    [SerializeField] private Sprite nextSprite;
+
     private void Awake()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
@@ -20,7 +22,9 @@ public class CheckPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerHealth.UpdateCheckpoint(respawnPoint.position);
-            //spriteRend.color = Color.green; —ƒ≈À¿“‹ —Ã≈Õ” —œ–¿…“¿
+            
+            spriteRend.sprite = nextSprite;
+
             coll.enabled = false;
         }
     }

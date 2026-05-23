@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckPoint
   respawnPoint: {fileID: 4492668310269892132}
+  nextSprite: {fileID: 8317937656479433621, guid: 6f0ed3d7717e2764d9592a86cc524277, type: 3}

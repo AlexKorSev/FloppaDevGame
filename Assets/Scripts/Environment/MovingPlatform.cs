@@ -4,9 +4,11 @@ public class MovingPlatform : MonoBehaviour
 {
     public Transform pointA;
     public Transform pointB;
+    public bool activated;
 
     [SerializeField] private float speed = 3f;
     private Vector3 nextPosition;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,11 +19,14 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
-
-        if (transform.position == nextPosition)
+        if (activated)
         {
-            nextPosition = (nextPosition == pointA.position) ? pointB.position : pointA.position;
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
+
+            if (transform.position == nextPosition)
+            {
+                nextPosition = (nextPosition == pointA.position) ? pointB.position : pointA.position;
+            }
         }
     }
 

@@ -249,4 +249,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   pointA: {fileID: 3714860664309302545}
   pointB: {fileID: 6815289910335504926}
-  speed: 2
+  activated: 1
+  speed: 3
