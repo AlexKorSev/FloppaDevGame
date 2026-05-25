@@ -292,6 +292,7 @@ MonoBehaviour:
   maxHealth: 0
   hit: 0
   healthBar: {fileID: 0}
+  totalHealthBar: {fileID: 0}
   iFramesDuration: 2
   numberOfFlashes: 3
 --- !u!114 &8668444661031721904
