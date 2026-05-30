@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4477981470239574941}
   - component: {fileID: 781064933519666236}
   - component: {fileID: 3254494415840467702}
+  - component: {fileID: 2824188463047191611}
   - component: {fileID: 4958997467599620788}
   - component: {fileID: 2806184943912341368}
   m_Layer: 6
@@ -234,7 +235,53 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 1.9, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &2824188463047191611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455342168853841882}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1}
+    newSize: {x: 2, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.8, y: 0.1}
   m_EdgeRadius: 0
 --- !u!50 &4958997467599620788
 Rigidbody2D:
@@ -275,7 +322,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02702f132c340f345b1b48ce3a9479ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
+  pointA: {fileID: 3714860664309302545}
+  pointB: {fileID: 6815289910335504926}
   activated: 1
   speed: 3
+  playerMovement: {fileID: 0}
+  playerRb: {fileID: 0}
+  rb: {fileID: 0}

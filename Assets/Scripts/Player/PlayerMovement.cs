@@ -8,8 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpingPower = 8f;
     public bool jumpAbility;
     public bool attackAbility;
-    [SerializeField] private AudioSource jumpSound;
-
+    
     private bool isFacingRight = true;
     private bool doubleJump;
     private float horizontal;
@@ -18,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private AudioSource jumpSound;
+
+    public bool isOnPlatform;
+    public Rigidbody2D platformRb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,7 +61,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded() || doubleJump)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+                if (isOnPlatform)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower * 1.3f + platformRb.linearVelocity.y * 0.5f);
+                }
+                else
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+                }
                 doubleJump = !doubleJump;
 
                 // Вставляем звук здесь
@@ -70,8 +80,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded())
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-
+                if (isOnPlatform)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower * 1.3f + platformRb.linearVelocity.y * 0.5f);
+                }
+                else
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+                }
                 // И здесь
                 PlayJumpSound();
             }
@@ -86,7 +102,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+        if (isOnPlatform)
+        {
+            rb.linearVelocity = new Vector2(horizontal * speed + platformRb.linearVelocity.x, rb.linearVelocity.y);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+        }
     }
 
     private bool isGrounded()
