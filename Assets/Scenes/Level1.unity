@@ -64097,6 +64097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backgrounds
       objectReference: {fileID: 0}
+    - target: {fileID: 968751529024644790, guid: 9d361cab5d10a7d44bdf136bba1bf88a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4093392627082855190, guid: 9d361cab5d10a7d44bdf136bba1bf88a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
