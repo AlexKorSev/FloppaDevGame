@@ -29,7 +29,6 @@ public class SwitchController : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         isPressed = true;
-        //spriteRend.color = Color.aliceBlue; ядекюрэ ялемс яопюирю
     }
 
     private void OnTriggerExit2D(Collider2D collision)

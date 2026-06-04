@@ -367,6 +367,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 0
+  - first: {x: -5, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 28
+      m_TileSpriteIndex: 27
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles:
   - first: {x: -9, y: 2, z: 0}
     second:
@@ -388,7 +398,7 @@ Tilemap:
       - {fileID: 1413187304, guid: 641b252e9e4bcb6499561be959d23893, type: 3}
       - {fileID: 1560432125, guid: 641b252e9e4bcb6499561be959d23893, type: 3}
       - {fileID: -1685888953, guid: 641b252e9e4bcb6499561be959d23893, type: 3}
-      m_AnimationSpeed: 1
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -448,6 +458,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0a43d442dfd44734793fae50b543f6eb, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9e90dc58a0f0695469a20177e201b6f7, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: d0eaf1030068fdc43904e1dc1ed5a8f8, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 4906210285214372981, guid: 19e22227259986a438e7a4cdb36e046b, type: 3}
@@ -503,8 +515,10 @@ Tilemap:
     m_Data: {fileID: -2095207412637609720, guid: 8365464806347994cb7740a42b9a0833, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1685888953, guid: 641b252e9e4bcb6499561be959d23893, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 9d2e219da74fd944caf321d16f62d271, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 28
+  - m_RefCount: 29
     m_Data:
       e00: 1
       e01: 0
@@ -523,7 +537,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 28
+  - m_RefCount: 29
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -605,7 +619,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
---- !u!114 &4054549879971877627
+--- !u!114 &3601579978550697517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
