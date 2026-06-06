@@ -30,6 +30,11 @@ public class Damage : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
         }
+        
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<BossController>().health -= damage;
+        }
     }
 
     // Метод для коллизии для триггеров
@@ -44,6 +49,10 @@ public class Damage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyHealth>().health -= damage;
+        }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<BossController>().health -= damage;
         }
     }
 }
