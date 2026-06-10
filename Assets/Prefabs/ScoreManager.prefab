@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cb78f7e55cc9e43811029bc99320dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  currentScore: 1000
-  decreaseRate: 10
+  currentScore: 0
+  decreaseRate: 0
   audioSource: {fileID: 8462988243959459739}
   coinClip: {fileID: 8300000, guid: 9109c95a5eeba6a4d9ea35ce3538c3fd, type: 3}
 --- !u!82 &8462988243959459739

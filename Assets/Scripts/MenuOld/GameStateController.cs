@@ -5,7 +5,7 @@ public class GameStateController : MonoBehaviour
 {
     public static bool IsGamePaused { get; private set; }
 
-    [Header("UI Настройки")]
+    [Header("Пауза")]
     [SerializeField] private GameObject pauseMenuPanel;
 
     private void Update()

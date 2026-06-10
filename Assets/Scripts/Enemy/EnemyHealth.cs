@@ -5,7 +5,8 @@ public class EnemyHealth : MonoBehaviour
     [Header("Enemy Health")]
     public float health;
     public float maxHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public float pointsToGive;
     void Start()
     {
         maxHealth = health;
@@ -17,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            ScoreManager.Instance.AddScore(pointsToGive);
             Destroy(gameObject);
         }
     }

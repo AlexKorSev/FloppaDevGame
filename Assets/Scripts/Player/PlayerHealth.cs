@@ -10,8 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public bool hit;
 
     private Vector2 checkPoint;
+
     [SerializeField] private Image healthBar;
     [SerializeField] private Image totalHealthBar;
+    private float oneHearthAmount = 20f;
+    private float maxHearths = 7f;
 
     [Header("IFrames")]
     [SerializeField] private float iFramesDuration;
@@ -26,13 +29,13 @@ public class PlayerHealth : MonoBehaviour
         checkPoint = transform.position;
         spriteRend = GetComponent<SpriteRenderer>();
 
-        totalHealthBar.fillAmount = health / (7 * 20);
+        totalHealthBar.fillAmount = health / (maxHearths * oneHearthAmount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = health / (7 * 20);
+        healthBar.fillAmount = health / (maxHearths * oneHearthAmount);
 
         if (hit)
         {
@@ -41,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-            Eliminate();
+            Destroy(this.gameObject);
         }
         if (health > maxHealth)
         {
@@ -49,10 +52,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Eliminate()
-    {
-        StartCoroutine(Respawn(0.5f));
-    }
+    //void Eliminate()
+    //{
+    //    StartCoroutine(Respawn(0.5f));
+    //}
 
     public void UpdateCheckpoint(Vector2 point)
     {
@@ -73,12 +76,12 @@ public class PlayerHealth : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 8, false);
     }
 
-    private IEnumerator Respawn(float duration)
-    {
-        spriteRend.enabled = false;
-        yield return new WaitForSeconds(duration);
-        transform.position = checkPoint;
-        health = maxHealth;
-        spriteRend.enabled = true;
-    }
+    //private IEnumerator Respawn(float duration)
+    //{
+    //    spriteRend.enabled = false;
+    //    yield return new WaitForSeconds(duration);
+    //    transform.position = checkPoint;
+    //    health = maxHealth;
+    //    spriteRend.enabled = true;
+    //}
 }

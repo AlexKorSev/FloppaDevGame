@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 40
   maxHealth: 0
+  pointsToGive: 100
 --- !u!95 &4603872796689226845
 Animator:
   serializedVersion: 7

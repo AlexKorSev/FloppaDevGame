@@ -27,11 +27,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        // Уменьшаем счет, только если игра НЕ на паузе
-        if (!GameStateController.IsGamePaused && currentScore > 0)
-        {
-            currentScore -= decreaseRate * Time.deltaTime;
-        }
+
     }
 
     public void AddScore(float amount)

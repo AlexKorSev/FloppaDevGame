@@ -18,7 +18,7 @@ public class ScoreUI : MonoBehaviour
         {
             // Обновляем текст на экране каждый кадр. 
             // "F0" округляет число до целого (без запятых)
-            scoreText.text = "Счёт: " + ScoreManager.Instance.currentScore.ToString("F0");
+            scoreText.text = "Фрагменты: " + ScoreManager.Instance.currentScore.ToString("F0");
         }
         else
         {
