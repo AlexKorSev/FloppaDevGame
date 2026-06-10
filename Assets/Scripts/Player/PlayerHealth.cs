@@ -29,6 +29,15 @@ public class PlayerHealth : MonoBehaviour
         checkPoint = transform.position;
         spriteRend = GetComponent<SpriteRenderer>();
 
+        if (checkPoint  == null )
+        {
+            checkPoint = transform.position;
+        }
+        else
+        {
+            transform.position = checkPoint;
+        }
+        
         totalHealthBar.fillAmount = health / (maxHearths * oneHearthAmount);
     }
 
@@ -44,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
+            GameStateController.IsGameRunning = false;
             Destroy(this.gameObject);
         }
         if (health > maxHealth)
