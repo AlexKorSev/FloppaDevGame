@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System;
 
 public class ScoreUI : MonoBehaviour
 {
@@ -13,12 +12,9 @@ public class ScoreUI : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, существует ли менеджер (чтобы не было ошибок)
         if (ScoreManager.Instance != null)
         {
-            // Обновляем текст на экране каждый кадр. 
-            // "F0" округляет число до целого (без запятых)
-            scoreText.text = "Счёт: " + ScoreManager.Instance.currentScore.ToString("F0");
+            scoreText.text = ScoreManager.Instance.coinsCollected.ToString();
         }
         else
         {

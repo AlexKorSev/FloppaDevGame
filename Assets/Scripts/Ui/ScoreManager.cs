@@ -4,9 +4,9 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    [Header("Настройки Счета")]
-    public float currentScore = 12000f;
-    public float decreaseRate = 10f;
+    [Header("Настройки Монет")]
+    // Монеты всегда целые
+    public int coinsCollected = 0;
 
     [Header("Звук")]
     [SerializeField] private AudioSource audioSource;
@@ -25,18 +25,9 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void AddCoin(int amount = 1)
     {
-        // Уменьшаем счет, только если игра НЕ на паузе
-        if (!GameStateController.IsGamePaused && currentScore > 0)
-        {
-            currentScore -= decreaseRate * Time.deltaTime;
-        }
-    }
-
-    public void AddScore(float amount)
-    {
-        currentScore += amount;
+        coinsCollected += amount;
 
         // Проигрываем звук (2D)
         if (audioSource != null && coinClip != null)

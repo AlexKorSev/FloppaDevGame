@@ -1371,8 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cb78f7e55cc9e43811029bc99320dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  currentScore: 1000
-  decreaseRate: 10
+  coinsCollected: 0
   audioSource: {fileID: 477228487}
   coinClip: {fileID: 8300000, guid: 9109c95a5eeba6a4d9ea35ce3538c3fd, type: 3}
 --- !u!82 &477228487
@@ -10540,7 +10539,7 @@ Transform:
   m_GameObject: {fileID: 927159397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7771478, y: -23.249289, z: -10}
+  m_LocalPosition: {x: -2.5, y: -23.249996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10634,10 +10633,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPText
       objectReference: {fileID: 0}
+    - target: {fileID: 1808426311560875919, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4592905905594301413, guid: 3b53919271ae72443b7d4576d255ae1c, type: 2}
+    - target: {fileID: 3527650858171120657, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835036566503401572, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4592905905594301413, guid: 3b53919271ae72443b7d4576d255ae1c, type: 2}
     - target: {fileID: 3887654641899280777, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1253756694}
+    - target: {fileID: 5601242400506002408, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680994200786651056, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6310886391577801723, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -10739,7 +10758,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1253756694}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5680994200786651056, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
@@ -13285,7 +13305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8403bad34efaec0499adb10b07a5cfe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateController
-  pauseMenuPanel: {fileID: 1404790063}
+  pauseMenuPanel: {fileID: 0}
 --- !u!4 &1253756695
 Transform:
   m_ObjectHideFlags: 0
@@ -55900,11 +55920,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1133545548512130285, guid: 6d56053f417e9bd4a88d9bb68ecf6cf8, type: 3}
   m_PrefabInstance: {fileID: 1605122736}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1404790063 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5680994200786651056, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
-  m_PrefabInstance: {fileID: 936259912}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1420042902 stripped
 Transform:
