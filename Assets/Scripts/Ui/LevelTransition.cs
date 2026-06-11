@@ -10,6 +10,7 @@ public class LevelTransition : MonoBehaviour
     public float fadeDuration = 1f;
 
     private bool isTransitioning = false;
+    private GameObject playerStartPos;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class LevelTransition : MonoBehaviour
             faderImage.color = new Color(0, 0, 0, 1);
             StartCoroutine(StartLevelFade());
         }
+        playerStartPos = FindAnyObjectByType<PlayerStartPos>().gameObject;
     }
 
     private IEnumerator StartLevelFade()
@@ -36,6 +38,8 @@ public class LevelTransition : MonoBehaviour
         if (other.CompareTag("Player") && !isTransitioning)
         {
             Debug.Log("Контакт! Теперь всё сработает корректно.");
+            Destroy(playerStartPos);
+
             isTransitioning = true;
             StartCoroutine(FadeToNextScene());
         }

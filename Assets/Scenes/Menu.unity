@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78010464, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.454902, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78010464, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.474125, b: 0.6075471, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2030,6 +2030,7 @@ GameObject:
   - component: {fileID: 1499765685}
   - component: {fileID: 1499765684}
   - component: {fileID: 1499765683}
+  - component: {fileID: 1499765686}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2138,7 +2139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78010464, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.474125, b: 0.6075471, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2163,6 +2164,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499765681}
   m_CullTransparentMesh: 1
+--- !u!114 &1499765686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499765681}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e006a560b2239f845be5e2d7e9d1627c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonPulse
+  pulseSpeed: 4
+  maxScaleMultiplier: 1
+  normalColor: {r: 1, g: 0.698, b: 0, a: 1}
+  highlightColor: {r: 1, g: 0.85, b: 0.4, a: 1}
+  hoverSound: {fileID: 0}
+  soundCooldown: 0.1
+  ignoreInputDuration: 5
 --- !u!1 &1539739522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78010464, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.474125, b: 0.6075471, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

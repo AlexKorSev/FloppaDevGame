@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public bool hit;
 
-    private Vector2 checkPoint;
+    [SerializeField] public Transform startPoint;
 
     [SerializeField] private Image healthBar;
     [SerializeField] private Image totalHealthBar;
@@ -26,19 +27,16 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         maxHealth = health;
-        checkPoint = transform.position;
         spriteRend = GetComponent<SpriteRenderer>();
-
-        if (checkPoint  == null )
-        {
-            checkPoint = transform.position;
-        }
-        else
-        {
-            transform.position = checkPoint;
-        }
         
         totalHealthBar.fillAmount = health / (maxHearths * oneHearthAmount);
+
+    }
+
+    private void Awake()
+    {
+        startPoint = FindAnyObjectByType<PlayerStartPos>().transform;
+        transform.position = startPoint.position;
     }
 
     // Update is called once per frame
@@ -54,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             GameStateController.IsGameRunning = false;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         if (health > maxHealth)
         {
@@ -67,9 +65,9 @@ public class PlayerHealth : MonoBehaviour
     //    StartCoroutine(Respawn(0.5f));
     //}
 
-    public void UpdateCheckpoint(Vector2 point)
+    public void UpdateCheckpoint(Transform point)
     {
-        checkPoint = point;
+        startPoint = point;
     }
 
     private IEnumerator Invincibility()

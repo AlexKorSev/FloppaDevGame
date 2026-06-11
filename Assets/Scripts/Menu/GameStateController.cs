@@ -11,10 +11,12 @@ public class GameStateController : MonoBehaviour
 
 
     [SerializeField] private GameObject gameOverScreen;
+    private GameObject playerStartPos;
 
     private void Start()
     {
         IsGameRunning = true;
+        playerStartPos = FindAnyObjectByType<PlayerStartPos>().gameObject;
     }
 
     private void Update()
@@ -61,6 +63,8 @@ public class GameStateController : MonoBehaviour
     {
         Time.timeScale = 1f;
         IsGamePaused = false;
+
+        Destroy(playerStartPos);
         SceneManager.LoadScene("Menu");
     }
 }

@@ -217,7 +217,7 @@ MonoBehaviour:
   health: 400
   maxHealth: 0
   currentPoint: {fileID: 0}
-  speed: 5
+  speed: 4
   jumpingPower: 10
   iFramesDuration: 2
   numberOfFlashes: 5
@@ -227,6 +227,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 3005617094609823622}
+  endGates: {fileID: 0}
 --- !u!114 &1599121517898806703
 MonoBehaviour:
   m_ObjectHideFlags: 0
