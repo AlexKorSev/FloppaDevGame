@@ -9755,7 +9755,7 @@ Transform:
   m_GameObject: {fileID: 600455630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 197, y: 25, z: 0}
+  m_LocalPosition: {x: 197, y: 31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9775,6 +9775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   faderImage: {fileID: 391682952}
   fadeDuration: 2
+  gameManager: {fileID: 1253756693}
 --- !u!61 &600455634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24940,6 +24941,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4585399023568822349, guid: 62d483d100c2115458ba4a6acfbbc6ce, type: 3}
   m_PrefabInstance: {fileID: 777909018}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &785083192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6601258183074135794, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+  m_PrefabInstance: {fileID: 936259912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &785083193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7779190514681822937, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+  m_PrefabInstance: {fileID: 936259912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &798035844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8820730324446271097, guid: 8fc2142ab3a79bb40afce30f23a29cd4, type: 3}
@@ -25214,9 +25237,11 @@ PolygonCollider2D:
       - {x: 84.74904, y: -111.77717}
       - {x: 81.40979, y: -98.56404}
       - {x: 110.13304, y: -94.46184}
-      - {x: 127.76965, y: -94.34825}
-      - {x: 128.15846, y: -61.652798}
-      - {x: 71.9225, y: -61.27452}
+      - {x: 127.86965, y: -94.44826}
+      - {x: 127.8646, y: -67.37257}
+      - {x: 110.9402, y: -67.555756}
+      - {x: 110.93967, y: -63.736973}
+      - {x: 71.9225, y: -63.87452}
       - {x: 71.79604, y: -79.484924}
       - {x: 37.694458, y: -79.29627}
       - {x: 37.548363, y: -92.50763}
@@ -25593,6 +25618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1612324825796807233, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 2138938934665629901}
     - target: {fileID: 4264798937251248097, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 197.8
@@ -25724,6 +25753,11 @@ GameObject:
 --- !u!1 &936259916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9132634857186301526, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+  m_PrefabInstance: {fileID: 936259912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &936259917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153433704484048736, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
   m_PrefabInstance: {fileID: 936259912}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &971861776
@@ -28346,6 +28380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameStateController
   pauseMenuPanel: {fileID: 936259915}
   gameOverScreen: {fileID: 936259916}
+  completeLevelScreen: {fileID: 936259917}
+  scoreManager: {fileID: 2138938934665629901}
+  tmpObject: {fileID: 0}
 --- !u!4 &1253756695
 Transform:
   m_ObjectHideFlags: 0
@@ -87314,6 +87351,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3395846576763690930, guid: be07c4b5554feeb44b14dd3644d6e96f, type: 3}
+      propertyPath: scoreLabel
+      value: 
+      objectReference: {fileID: 785083193}
+    - target: {fileID: 3395846576763690930, guid: be07c4b5554feeb44b14dd3644d6e96f, type: 3}
+      propertyPath: timerLabel
+      value: 
+      objectReference: {fileID: 785083192}
     - target: {fileID: 4025860721995281912, guid: be07c4b5554feeb44b14dd3644d6e96f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.83
@@ -87359,6 +87404,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be07c4b5554feeb44b14dd3644d6e96f, type: 3}
+--- !u!114 &2138938934665629901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3395846576763690930, guid: be07c4b5554feeb44b14dd3644d6e96f, type: 3}
+  m_PrefabInstance: {fileID: 2138938934665629900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cb78f7e55cc9e43811029bc99320dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
 --- !u!1001 &3488715421828424285
 PrefabInstance:
   m_ObjectHideFlags: 0

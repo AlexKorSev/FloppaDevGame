@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,10 @@ public class GameStateController : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private GameObject nextLevelScreen;
+    [SerializeField] private GameObject completeLevelScreen;
+
+    [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] public TextMeshProUGUI tmpObject;
 
     private GameObject playerStartPos;
 
@@ -45,6 +49,23 @@ public class GameStateController : MonoBehaviour
         IsGamePaused = true;
     }
 
+    public void CompleteLevel()
+    {
+        if (completeLevelScreen != null)
+        {
+            float playTime = 10f;
+            int fragments = 10;
+            int destroys = 10;
+            float finalResult = scoreManager.currentScore;
+            tmpObject.text = "Результаты:\nВремя прохождения - " + playTime 
+                + "\nСобрано фрагментов - " + fragments 
+                + "\nУстранено программ - " + destroys 
+                + "\n\nИтог - " + finalResult;
+
+            completeLevelScreen.SetActive(true);
+        }
+    }
+
     public void GameOver()
     {
         if (gameOverScreen != null)
@@ -53,8 +74,25 @@ public class GameStateController : MonoBehaviour
         }
     }
 
+    public void NextLevel()
+    {
+        Destroy(playerStartPos);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public void RetryLevel()
     {
+        Time.timeScale = 1f;
+        IsGamePaused = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

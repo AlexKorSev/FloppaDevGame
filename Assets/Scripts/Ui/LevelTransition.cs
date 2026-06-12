@@ -9,6 +9,9 @@ public class LevelTransition : MonoBehaviour
     public Image faderImage;
     public float fadeDuration = 1f;
 
+    [SerializeField] private GameObject gameManager;
+
+
     private bool isTransitioning = false;
     private GameObject playerStartPos;
 
@@ -38,7 +41,6 @@ public class LevelTransition : MonoBehaviour
         if (other.CompareTag("Player") && !isTransitioning)
         {
             Debug.Log("Контакт! Теперь всё сработает корректно.");
-            Destroy(playerStartPos);
 
             isTransitioning = true;
             StartCoroutine(FadeToNextScene());
@@ -50,20 +52,22 @@ public class LevelTransition : MonoBehaviour
         faderImage.gameObject.SetActive(true);
 
         // Затемнение
-        yield return StartCoroutine(Fade(0, 1));
+        yield return StartCoroutine(Fade(0, 0.5f));
 
         // Короткая пауза в полной темноте перед загрузкой
         yield return new WaitForSeconds(0.2f);
 
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
+        gameManager.GetComponent<GameStateController>().CompleteLevel();
+
+        //int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        //if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        //{
+        //    SceneManager.LoadScene(nextSceneIndex);
+        //}
+        //else
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
     }
 
     private IEnumerator Fade(float startAlpha, float endAlpha)
