@@ -6,11 +6,10 @@ public class GameStateController : MonoBehaviour
     public static bool IsGamePaused { get; private set; }
     public static bool IsGameRunning { get; set; }
 
-    [Header("Пауза")]
     [SerializeField] private GameObject pauseMenuPanel;
-
-
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject nextLevelScreen;
+
     private GameObject playerStartPos;
 
     private void Start()
