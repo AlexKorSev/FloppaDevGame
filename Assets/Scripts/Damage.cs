@@ -23,8 +23,8 @@ public class Damage : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
             collision.gameObject.GetComponent<PlayerHealth>().hit = true;
-        }
 
+        }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -35,30 +35,11 @@ public class Damage : MonoBehaviour
         {
             collision.gameObject.GetComponent<BossController>().health -= damage;
         }
-
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Vector2 pushDirection = transform.lossyScale.x > 0 ? Vector2.right : Vector2.left;
-            collision.gameObject.GetComponent<WallDestruction>().DestroyWall(pushDirection);
-        }
     }
 
     // Метод для коллизии для триггеров
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-        if (collision.CompareTag("Player"))
-        {
-            PlayerHealth player = collision.GetComponent<PlayerHealth>();
-            Debug.Log($"[DEBUG] Ссылка на скрипт здоровья: {player} | Значение урона: {damage}");
-            if (player != null)
-            {
-                player.health -= damage;
-                player.hit = true;
-            }
-        }
-
         //Damage by spikes
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -72,12 +53,6 @@ public class Damage : MonoBehaviour
         if (collision.gameObject.CompareTag("Boss"))
         {
             collision.gameObject.GetComponent<BossController>().health -= damage;
-        }
-
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Vector2 pushDirection = transform.lossyScale.x > 0 ? Vector2.right : Vector2.left;
-            collision.gameObject.GetComponent<WallDestruction>().DestroyWall(pushDirection);
         }
     }
 }

@@ -8,10 +8,6 @@ TagManager:
   - Enemy
   - Box
   - Boss
-  - Projectile
-  - Wall
-  - Bullet
-  - Turret
   layers:
   - Default
   - TransparentFX
