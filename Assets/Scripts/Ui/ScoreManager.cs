@@ -6,16 +6,19 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     [Header("Настройки Счета")]
-    public float currentScore = 0f;
-    public float gameTime = 0f;
+    public float currentScore;
+    public int collected;
+    public int destroyed;
+
+    private float gameTime = 0f;
 
     [Header("Counters")]
     [SerializeField] private TextMeshProUGUI scoreLabel;
     [SerializeField] private TextMeshProUGUI timerLabel;
 
-    [Header("Звук")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip coinClip;
+    //[Header("Звук")]
+    //[SerializeField] private AudioSource audioSource;
+    //[SerializeField] private AudioClip coinClip;
 
     
     private void Awake()
@@ -23,7 +26,9 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            collected = 0; destroyed = 0;
         }
+
     }
 
     private void Update()
@@ -49,9 +54,24 @@ public class ScoreManager : MonoBehaviour
         currentScore += amount;
 
         // Проигрываем звук (2D)
-        if (audioSource != null && coinClip != null)
-        {
-            audioSource.PlayOneShot(coinClip);
-        }
+        //if (audioSource != null && coinClip != null)
+        //{
+        //    audioSource.PlayOneShot(coinClip);
+        //}
+    }
+
+    public void AddCollected(int amount)
+    {
+        collected += amount;
+    }
+
+    public void AddDestroyed(int amount)
+    {
+        destroyed += amount;
+    }
+
+    public float GetGameTime()
+    {
+        return gameTime;
     }
 }

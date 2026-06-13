@@ -19,6 +19,8 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             ScoreManager.Instance.AddScore(pointsToGive);
+            ScoreManager.Instance.AddDestroyed(1);
+
             Destroy(gameObject);
         }
     }

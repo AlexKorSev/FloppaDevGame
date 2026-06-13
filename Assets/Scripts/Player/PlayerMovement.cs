@@ -17,16 +17,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private AudioSource jumpSound;
+
+    //[SerializeField] private AudioSource jumpSound;
 
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
+
+    AudioManager audioManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -71,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 doubleJump = !doubleJump;
 
-                // Вставляем звук здесь
                 PlayJumpSound();
             }
         }
@@ -88,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
                 }
-                // И здесь
+                
                 PlayJumpSound();
             }
         }
@@ -136,10 +143,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayJumpSound()
     {
-        if (jumpSound != null)
-        {
-            jumpSound.pitch = Random.Range(0.85f, 1.15f); // Тот самый разный звук
-            jumpSound.PlayOneShot(jumpSound.clip);
-        }
+        //if (jumpSound != null)
+        //{
+        //    jumpSound.pitch = Random.Range(0.85f, 1.15f); // Тот самый разный звук
+        //    jumpSound.PlayOneShot(jumpSound.clip);
+        //}
+        audioManager.PlaySFX(audioManager.jump);
     }
 }

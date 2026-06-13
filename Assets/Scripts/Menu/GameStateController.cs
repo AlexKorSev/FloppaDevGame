@@ -53,15 +53,16 @@ public class GameStateController : MonoBehaviour
     {
         if (completeLevelScreen != null)
         {
-            float playTime = 10f;
-            int fragments = 10;
-            int destroys = 10;
+            float playTime = scoreManager.GetGameTime();
+            int fragments = scoreManager.collected;
+            int destroys = scoreManager.destroyed;
             float finalResult = scoreManager.currentScore;
-            tmpObject.text = "Результаты:\nВремя прохождения - " + playTime 
+            tmpObject.text = "Результаты:\nВремя прохождения - " + playTime.ToString("F0") 
                 + "\nСобрано фрагментов - " + fragments 
                 + "\nУстранено программ - " + destroys 
                 + "\n\nИтог - " + finalResult;
 
+            Time.timeScale = 0f;
             completeLevelScreen.SetActive(true);
         }
     }
@@ -77,6 +78,7 @@ public class GameStateController : MonoBehaviour
     public void NextLevel()
     {
         Destroy(playerStartPos);
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -90,8 +92,7 @@ public class GameStateController : MonoBehaviour
 
     public void RetryLevel()
     {
-        Time.timeScale = 1f;
-        IsGamePaused = false;
+        ResumeGame();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
