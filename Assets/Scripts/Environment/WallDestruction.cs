@@ -11,25 +11,13 @@ public class WallDestruction : MonoBehaviour
 
     private bool _isDestroyed = false;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Этот метод вызовет скрипт Damage в момент удара.
+    public void DestroyWall(Vector2 pushDirection)
     {
-        if (collision.gameObject.CompareTag("Player") && !_isDestroyed)
-        {
-            _isDestroyed = true;
+        if (_isDestroyed) return;
+        _isDestroyed = true;
 
-            // Определяем направление импульса на основе контакта
-            // Если точка контакта справа от центра игрока -> импульс идет вправо
-            Vector2 hitDirection = Vector2.right;
-
-            if (collision.contacts.Length > 0)
-            {
-                // Сравниваем позицию стены и позицию игрока
-                float relativeX = transform.position.x - collision.transform.position.x;
-                hitDirection = relativeX > 0 ? Vector2.right : Vector2.left;
-            }
-
-            StartCoroutine(DestroyAndSpawnRoutine(hitDirection));
-        }
+        StartCoroutine(DestroyAndSpawnRoutine(pushDirection));
     }
 
     private IEnumerator DestroyAndSpawnRoutine(Vector2 pushDirection)
@@ -45,21 +33,14 @@ public class WallDestruction : MonoBehaviour
 
         if (fracturedWallPrefab != null)
         {
-            // Спавним контейнер с осколками
             GameObject fracturedObj = Instantiate(fracturedWallPrefab, transform.position, transform.rotation);
-
-            // Ищем все скрипты FracturedPiece у дочерних осколков
             FracturedPiece[] pieces = fracturedObj.GetComponentsInChildren<FracturedPiece>();
 
-            // Передаем импульс каждому осколку
             foreach (FracturedPiece piece in pieces)
             {
                 piece.InitializeImpulse(pushDirection, explosionForce);
             }
 
-            // Сам контейнер (пустой объект) нам больше не нужен, 
-            // так как дочерние осколки сами себя уничтожат через скрипт.
-            // Но чтобы сцена не захламлялась пустышками, удалим контейнер чуть позже
             Destroy(fracturedObj, 10f);
         }
         else
