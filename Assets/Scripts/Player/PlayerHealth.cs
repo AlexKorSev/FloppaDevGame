@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer spriteRend;
 
+    AudioManager audioManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         startPoint = FindAnyObjectByType<PlayerStartPos>().transform;
         transform.position = startPoint.position;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (hit)
         {
+            audioManager.PlaySFX(audioManager.damageTaken);
             StartCoroutine(Invincibility());
             hit = false;
         }
@@ -59,11 +63,6 @@ public class PlayerHealth : MonoBehaviour
             health = maxHealth;
         }
     }
-
-    //void Eliminate()
-    //{
-    //    StartCoroutine(Respawn(0.5f));
-    //}
 
     public void UpdateCheckpoint(Transform point)
     {
@@ -83,13 +82,4 @@ public class PlayerHealth : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(7, 8, false);
     }
-
-    //private IEnumerator Respawn(float duration)
-    //{
-    //    spriteRend.enabled = false;
-    //    yield return new WaitForSeconds(duration);
-    //    transform.position = checkPoint;
-    //    health = maxHealth;
-    //    spriteRend.enabled = true;
-    //}
 }

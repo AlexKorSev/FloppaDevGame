@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -177,9 +177,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 8318471637766719967}
   SFXSource: {fileID: 5619138491159017833}
-  background: {fileID: 8300000, guid: 6437f88b9eb20f740ab6ca250b67deae, type: 3}
+  backgroundM: {fileID: 8300000, guid: 6437f88b9eb20f740ab6ca250b67deae, type: 3}
   jump: {fileID: 8300000, guid: 8038e06d55e07a54d80e7f389150de05, type: 3}
   coin: {fileID: 8300000, guid: 9109c95a5eeba6a4d9ea35ce3538c3fd, type: 3}
+  attack: {fileID: 8300000, guid: c83308d96f50ea84486fdc0e743e7c9e, type: 3}
+  damageTaken: {fileID: 8300000, guid: 53c9d893c4b7c6d4bab8592b7cabcb5a, type: 3}
+  doorMove: {fileID: 8300000, guid: ff84e87819371764ab2de99066ed396e, type: 3}
+  healinTaken: {fileID: 8300000, guid: 3374351c6ebb0284b89f7e946aa298c0, type: 3}
+  spikes: {fileID: 8300000, guid: da135118c2df9474dbe612b376099ec6, type: 3}
+  projectileImpact: {fileID: 8300000, guid: 9cd9bc405a0ffce40b803cb5b7922273, type: 3}
 --- !u!1 &6917611497662022371
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,11 +13,15 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     //private Animator anim;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         //anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        audioManager.PlaySFX(audioManager.projectileImpact);
+
         hit = true;
         boxCollider.enabled = false;
         Deactivate();
@@ -41,6 +47,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        audioManager.PlaySFX(audioManager.projectileImpact);
+
         hit = true;
         boxCollider.enabled = false;
         Deactivate();

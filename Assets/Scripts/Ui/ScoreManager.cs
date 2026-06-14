@@ -20,6 +20,10 @@ public class ScoreManager : MonoBehaviour
     //[SerializeField] private AudioSource audioSource;
     //[SerializeField] private AudioClip coinClip;
 
+    private static float Level1Max = 500f;
+    private static float Level2Max = 1900f;
+    private static float Level3Max = 1750f;
+
     
     private void Awake()
     {
@@ -73,5 +77,21 @@ public class ScoreManager : MonoBehaviour
     public float GetGameTime()
     {
         return gameTime;
+    }
+
+    public static float GetMaxPoints(string levelName)
+    {
+        if (levelName == "Level1")
+        {
+            return Level1Max;
+        }
+        else if (levelName == "Level2")
+        {
+            return Level2Max;
+        }
+        else
+        {
+            return Level3Max;
+        }
     }
 }

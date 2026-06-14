@@ -10,16 +10,20 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         //anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Update()
     {
         if (Input.GetButton("Fire1") && cooldownTimer > attackCooldown && playerMovement.canAttack())
         {
+            audioManager.PlaySFX(audioManager.attack);
             Attack();
         }
 

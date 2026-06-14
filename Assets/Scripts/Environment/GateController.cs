@@ -29,9 +29,4 @@ public class GateController : MonoBehaviour
             spriteRend.enabled = true;
         }
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
 }

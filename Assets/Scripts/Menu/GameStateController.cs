@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameStateController : MonoBehaviour
 {
@@ -14,7 +15,11 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] public TextMeshProUGUI tmpObject;
 
+    [SerializeField] private Image medalImagePlace;
+    [SerializeField] private Sprite[] medalSprites;
+
     private GameObject playerStartPos;
+    
 
     private void Start()
     {
@@ -57,11 +62,28 @@ public class GameStateController : MonoBehaviour
             int fragments = scoreManager.collected;
             int destroys = scoreManager.destroyed;
             float finalResult = scoreManager.currentScore;
+
+            float maxPoints = ScoreManager.GetMaxPoints(SceneManager.GetActiveScene().name);
+
             tmpObject.text = "Результаты:\nВремя прохождения - " + playTime.ToString("F0") 
                 + "\nСобрано фрагментов - " + fragments 
                 + "\nУстранено программ - " + destroys 
                 + "\n\nИтог - " + finalResult;
 
+            // Deciding and placing needed medal
+            if (finalResult < maxPoints * 0.4)
+            {
+                medalImagePlace.sprite = medalSprites[0];
+            }
+            else if (finalResult < maxPoints * 0.7)
+            {
+                medalImagePlace.sprite = medalSprites[1];
+            }
+            else if (finalResult <= maxPoints || finalResult > maxPoints)
+            {
+                medalImagePlace.sprite = medalSprites[2];
+            }
+            
             Time.timeScale = 0f;
             completeLevelScreen.SetActive(true);
         }
@@ -78,6 +100,7 @@ public class GameStateController : MonoBehaviour
     public void NextLevel()
     {
         Destroy(playerStartPos);
+        Time.timeScale = 1f;
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
