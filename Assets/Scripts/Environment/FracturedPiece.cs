@@ -1,70 +1,71 @@
 using System.Collections;
 using UnityEngine;
 
+// Требуем наличия Rigidbody2D, чтобы не забыть его добавить
+[RequireComponent(typeof(Rigidbody2D))]
 public class FracturedPiece : MonoBehaviour
 {
     [Header("Настройки исчезновения")]
-    [SerializeField] private float lifeTime = 1f;       // Сколько секунд осколок лежит до начала затухания
-    [SerializeField] private float fadeDuration = 1f;   // Сколько времени занимает само растворение
+    [SerializeField] private float lifeTime = 1.5f;
+    [SerializeField] private float fadeDuration = 1f;
 
     private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        // Как только осколок появился — запускаем таймер жизни и растворения
         StartCoroutine(FadeAndDestroyRoutine());
     }
 
-    // Метод, который будет вызывать целая стена при физическом ударе
-    public void InitializeImpulse(Vector2 forceDirection, float forceMagnitude)
+    public void Explode(Vector2 projectileDirection, Vector2 impactPoint, float forceMagnitude)
     {
-        if (TryGetComponent<Rigidbody2D>(out var rb))
-        {
-            // Случайный разброс по вертикали и силе, чтобы осколки летели хаотично и красиво
-            Vector2 randomizedDirection = new Vector2(
-                forceDirection.x,
-                Random.Range(-0.5f, 0.5f)
-            ).normalized;
+        // Вектор "отталкивания" от точки попадания до центра конкретного осколка
+        Vector2 piecePosition = transform.position;
+        Vector2 explosionDir = (piecePosition - impactPoint).normalized;
 
-            float randomizedForce = forceMagnitude * Random.Range(0.7f, 1.3f);
+        // мешиваем направление снаряда и направление взрыва
+        // Коэффициенты (например, 0.7 и 0.3) можно менять, чтобы настроить "конус" разлета
+        Vector2 finalDirection = (projectileDirection * 0.6f + explosionDir * 0.4f).normalized;
 
-            // Применяем импульс мгновенно
-            rb.AddForce(randomizedDirection * randomizedForce, ForceMode2D.Impulse);
-        }
+        // Добавляем каплю рандома, чтобы не было идеально симметрично
+        finalDirection.x += Random.Range(-0.1f, 0.1f);
+        finalDirection.y += Random.Range(-0.1f, 0.1f);
+        finalDirection = finalDirection.normalized;
+
+        // Случайная сила
+        float randomizedForce = forceMagnitude * Random.Range(0.7f, 1.3f);
+
+        // Случайное закручивание осколка в воздухе
+        float randomTorque = Random.Range(-15f, 15f);
+
+        // Применяем физику
+        _rb.AddForce(finalDirection * randomizedForce, ForceMode2D.Impulse);
+        _rb.AddTorque(randomTorque, ForceMode2D.Impulse);
     }
 
     private IEnumerator FadeAndDestroyRoutine()
     {
-        // Ждем пока осколок просто лежит
         yield return new WaitForSeconds(lifeTime);
 
-        if (_spriteRenderer == null)
-        {
-            Destroy(gameObject);
-            yield break;
-        }
+        if (_spriteRenderer == null) yield break;
 
         Color originalColor = _spriteRenderer.color;
         float elapsedTime = 0f;
 
-        // Плавно уменьшаем альфа-канал (прозрачность)
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
-
-            // Вычисляем текущую прозрачность от 1 до 0
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
             _spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-
-            yield return null; // Ждем следующего кадра
+            yield return null;
         }
 
-        // Удаляем объект, когда он стал полностью невидимым
         Destroy(gameObject);
     }
 }

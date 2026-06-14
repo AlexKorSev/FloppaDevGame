@@ -9,6 +9,8 @@ TagManager:
   - Box
   - Boss
   - Audio
+  - Projectile
+  - WeakWall
   layers:
   - Default
   - TransparentFX
