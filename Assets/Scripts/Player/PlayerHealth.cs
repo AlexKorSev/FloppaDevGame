@@ -33,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         
         totalHealthBar.fillAmount = health / (maxHearths * oneHearthAmount);
 
+        Physics2D.IgnoreLayerCollision(7, 8, false);
     }
 
     private void Awake()

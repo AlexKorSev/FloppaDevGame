@@ -50,7 +50,7 @@ public class PlayerGrabbing : MonoBehaviour
         grabbedObject.transform.position = boxHolder.position;
         grabbedObject.transform.SetParent(transform);
 
-        boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void LetGoBox()
@@ -60,6 +60,6 @@ public class PlayerGrabbing : MonoBehaviour
         grabbedObject.transform.SetParent(null);
         grabbedObject = null;
 
-        boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //boxHolder.gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
