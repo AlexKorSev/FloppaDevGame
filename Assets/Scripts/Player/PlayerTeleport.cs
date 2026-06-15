@@ -3,10 +3,13 @@ using UnityEngine;
 public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField] public bool audioOn;
+    AudioManager audioManager;
+
+    private void Awake()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -14,6 +17,8 @@ public class PlayerTeleport : MonoBehaviour
     {
         if (currentTeleporter != null)
         {
+            if (audioOn) audioManager.PlaySFX(audioManager.spikes);
+
             transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
         }
     }
@@ -24,16 +29,6 @@ public class PlayerTeleport : MonoBehaviour
         {
             currentTeleporter = collision.gameObject;
         }
-    }
-
-    // Для затухания экрана
-    async void FadeTransition()
-    {
-        await ScreenFader.Instance.FadeOut();
-
-        
-
-        await ScreenFader.Instance.FadeIn();
     }
 
     private void OnTriggerExit2D(Collider2D collision)

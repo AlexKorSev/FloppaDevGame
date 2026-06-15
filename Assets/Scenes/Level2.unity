@@ -26215,6 +26215,10 @@ PrefabInstance:
       propertyPath: scoreManager
       value: 
       objectReference: {fileID: 2138938934665629901}
+    - target: {fileID: 3835036566503401572, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4264798937251248097, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 197.8
@@ -26222,6 +26226,10 @@ PrefabInstance:
     - target: {fileID: 4264798937251248097, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 173.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601242400506002408, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6310886391577801723, guid: ab7d135d92381214db30be38a45c27b1, type: 3}
       propertyPath: m_Name

@@ -143,11 +143,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayJumpSound()
     {
-        //if (jumpSound != null)
-        //{
-        //    jumpSound.pitch = Random.Range(0.85f, 1.15f); // Тот самый разный звук
-        //    jumpSound.PlayOneShot(jumpSound.clip);
-        //}
         audioManager.PlaySFX(audioManager.jump);
     }
 }

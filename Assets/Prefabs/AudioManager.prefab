@@ -184,8 +184,10 @@ MonoBehaviour:
   damageTaken: {fileID: 8300000, guid: 53c9d893c4b7c6d4bab8592b7cabcb5a, type: 3}
   doorMove: {fileID: 8300000, guid: ff84e87819371764ab2de99066ed396e, type: 3}
   healinTaken: {fileID: 8300000, guid: 3374351c6ebb0284b89f7e946aa298c0, type: 3}
-  spikes: {fileID: 8300000, guid: da135118c2df9474dbe612b376099ec6, type: 3}
+  spikes: {fileID: 8300000, guid: fa8d8213f7f8fd346b8e33f4a524af02, type: 3}
   projectileImpact: {fileID: 8300000, guid: 9cd9bc405a0ffce40b803cb5b7922273, type: 3}
+  landing: {fileID: 8300000, guid: d54e5722c33d864428aba9ef301cac33, type: 3}
+  checkpoint: {fileID: 8300000, guid: 3094f01bdb23bd54a8757347f1d17b6e, type: 3}
 --- !u!1 &6917611497662022371
 GameObject:
   m_ObjectHideFlags: 0

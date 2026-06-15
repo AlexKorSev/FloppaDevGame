@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9bd8072d2378346b80e251870f074e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTeleport
+  audioOn: 1
 --- !u!114 &4276165588203084382
 MonoBehaviour:
   m_ObjectHideFlags: 0

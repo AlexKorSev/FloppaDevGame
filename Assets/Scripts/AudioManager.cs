@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip spikes;
     public AudioClip projectileImpact;
     public AudioClip landing;
+    public AudioClip checkpoint;
 
     public void Start()
     {
