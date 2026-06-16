@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     //[SerializeField] private AudioClip coinClip;
 
     private static float Level1Max = 500f;
-    private static float Level2Max = 1900f;
+    private static float Level2Max = 1700f;
     private static float Level3Max = 1750f;
 
     

@@ -58,12 +58,14 @@ public class GameStateController : MonoBehaviour
     {
         if (completeLevelScreen != null)
         {
+            string sceneName = SceneManager.GetActiveScene().name;
+
             float playTime = scoreManager.GetGameTime();
             int fragments = scoreManager.collected;
             int destroys = scoreManager.destroyed;
             float finalResult = scoreManager.currentScore;
 
-            float maxPoints = ScoreManager.GetMaxPoints(SceneManager.GetActiveScene().name);
+            float maxPoints = ScoreManager.GetMaxPoints(sceneName);
 
             tmpObject.text = "Результаты:\nВремя прохождения - " + playTime.ToString("F0") 
                 + "\nСобрано фрагментов - " + fragments 
@@ -74,19 +76,32 @@ public class GameStateController : MonoBehaviour
             if (finalResult < maxPoints * 0.4)
             {
                 medalImagePlace.sprite = medalSprites[0];
+
+                UpdatePrefs(sceneName, 1);
             }
             else if (finalResult < maxPoints * 0.7)
             {
                 medalImagePlace.sprite = medalSprites[1];
+
+                UpdatePrefs(sceneName, 2);
             }
             else if (finalResult <= maxPoints || finalResult > maxPoints)
             {
                 medalImagePlace.sprite = medalSprites[2];
+
+                UpdatePrefs(sceneName, 3);
             }
             
             Time.timeScale = 0f;
             completeLevelScreen.SetActive(true);
         }
+    }
+
+    public void UpdatePrefs(string name, int index)
+    {
+        string prefName = name + "Result";
+        int fairIndex = Mathf.Max(PlayerPrefs.GetInt(prefName), index);
+        PlayerPrefs.SetInt(prefName, fairIndex);
     }
 
     public void GameOver()

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -37,12 +38,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        audioManager.PlaySFX(audioManager.projectileImpact);
+        if (!collision.gameObject.CompareTag("Respawn"))
+        {
+            audioManager.PlaySFX(audioManager.projectileImpact);
 
-        hit = true;
-        boxCollider.enabled = false;
-        Deactivate();
-        //anim.SetTrigger("explode");
+            hit = true;
+            boxCollider.enabled = false;
+            Deactivate();
+            //anim.SetTrigger("explode");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

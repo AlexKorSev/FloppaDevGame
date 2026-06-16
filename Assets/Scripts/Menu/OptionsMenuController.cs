@@ -39,6 +39,7 @@ public class OptionsMenuController : MonoBehaviour
     {
         float volume = sfxSlider.value;
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
     private void LoadPrefs()
@@ -48,5 +49,15 @@ public class OptionsMenuController : MonoBehaviour
 
         SetMusicVolume();
         SetSFXVolume();
+    }
+
+    public void EraseData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.Save();
     }
 }
