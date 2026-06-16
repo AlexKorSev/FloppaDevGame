@@ -29,6 +29,5 @@ public class AudioManager : MonoBehaviour
     {
         SFXSource.pitch = Random.Range(0.9f, 1.1f); // Тот самый разный звук
         SFXSource.PlayOneShot(clip);
-        //SFXSource.PlayOneShot(clip);
     }
 }

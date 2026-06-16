@@ -43144,6 +43144,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1148026060}
     m_Modifications:
+    - target: {fileID: 7086906935399821592, guid: 4974f4a8b088ce04ea6a7ae2c39eea2d, type: 3}
+      propertyPath: pointIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7902391545454245564, guid: 4974f4a8b088ce04ea6a7ae2c39eea2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.40406
@@ -47009,6 +47013,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1813825411}
   - {fileID: 586518384}
   - {fileID: 827913070}
   m_Father: {fileID: 0}
@@ -62139,6 +62144,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1148026060}
     m_Modifications:
+    - target: {fileID: 7086906935399821592, guid: 4974f4a8b088ce04ea6a7ae2c39eea2d, type: 3}
+      propertyPath: pointIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7902391545454245564, guid: 4974f4a8b088ce04ea6a7ae2c39eea2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.09594011
@@ -63506,6 +63515,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc2142ab3a79bb40afce30f23a29cd4, type: 3}
+--- !u!1 &1813825410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813825411}
+  m_Layer: 0
+  m_Name: CheckPoint0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1813825411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813825410}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.90406, y: -36.487778, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1148026060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1819053393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8615388920325442733, guid: 67be3c677a2c5e2439d2c2f44aedccf5, type: 3}

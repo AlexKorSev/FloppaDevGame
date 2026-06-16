@@ -32,7 +32,10 @@ public class ScoreManager : MonoBehaviour
             Instance = this;
             collected = 0; destroyed = 0;
         }
-
+        if (PlayerPrefs.HasKey("LevelPoints"))
+        {
+            currentScore = PlayerPrefs.GetInt("LevelPoints");
+        }
     }
 
     private void Update()
@@ -56,12 +59,6 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(float amount)
     {
         currentScore += amount;
-
-        // Проигрываем звук (2D)
-        //if (audioSource != null && coinClip != null)
-        //{
-        //    audioSource.PlayOneShot(coinClip);
-        //}
     }
 
     public void AddCollected(int amount)

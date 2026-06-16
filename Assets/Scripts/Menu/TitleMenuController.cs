@@ -23,6 +23,8 @@ public class TitleMenuController : MonoBehaviour
 
     public void PlayGame(string level)
     {
+        PlayerPrefs.SetInt("LevelCheck", 0);
+        PlayerPrefs.SetInt("LevelPoints", 0);
         SceneManager.LoadScene(level);
     }
 

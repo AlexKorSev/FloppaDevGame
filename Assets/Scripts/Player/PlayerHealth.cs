@@ -38,8 +38,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        startPoint = FindAnyObjectByType<PlayerStartPos>().transform;
+        startPoint = GameObject.Find("CheckPoint" + PlayerPrefs.GetInt("LevelCheck").ToString()).transform;
         transform.position = startPoint.position;
+
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -67,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateCheckpoint(Transform point)
     {
-        startPoint = point;
+        //startPoint = point;
     }
 
     private IEnumerator Invincibility()

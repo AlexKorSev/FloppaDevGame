@@ -8,9 +8,10 @@ public class CheckPoint : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Collider2D coll;
 
-    [SerializeField] private Transform startPos;
     [SerializeField] private Sprite nextSprite;
+    [SerializeField] private int pointIndex;
 
+    ScoreManager scoreManager;
     AudioManager audioManager;
 
     private void Awake()
@@ -19,21 +20,20 @@ public class CheckPoint : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
         coll = GetComponent<Collider2D>();
 
-        startPos = FindAnyObjectByType<PlayerStartPos>().transform;
-
+        scoreManager = GameObject.FindAnyObjectByType<ScoreManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        startPos = FindAnyObjectByType<PlayerStartPos>().transform;
         if (other.CompareTag("Player"))
         {
-            //playerHealth.UpdateCheckpoint(respawnPoint);
             audioManager.PlaySFX(audioManager.checkpoint);
 
-            startPos.position = respawnPoint.position;
             spriteRend.sprite = nextSprite;
+
+            PlayerPrefs.SetInt("LevelCheck", pointIndex);
+            PlayerPrefs.SetInt("LevelPoints", (int)scoreManager.currentScore);
 
             coll.enabled = false;
         }

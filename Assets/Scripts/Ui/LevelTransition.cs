@@ -13,7 +13,6 @@ public class LevelTransition : MonoBehaviour
 
 
     private bool isTransitioning = false;
-    private GameObject playerStartPos;
 
     private void Start()
     {
@@ -25,7 +24,6 @@ public class LevelTransition : MonoBehaviour
             faderImage.color = new Color(0, 0, 0, 1);
             StartCoroutine(StartLevelFade());
         }
-        playerStartPos = FindAnyObjectByType<PlayerStartPos>().gameObject;
     }
 
     private IEnumerator StartLevelFade()
@@ -58,16 +56,6 @@ public class LevelTransition : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         gameManager.GetComponent<GameStateController>().CompleteLevel();
-
-        //int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        //if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        //{
-        //    SceneManager.LoadScene(nextSceneIndex);
-        //}
-        //else
-        //{
-        //    SceneManager.LoadScene(0);
-        //}
     }
 
     private IEnumerator Fade(float startAlpha, float endAlpha)

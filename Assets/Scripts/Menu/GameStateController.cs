@@ -18,13 +18,12 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private Image medalImagePlace;
     [SerializeField] private Sprite[] medalSprites;
 
-    private GameObject playerStartPos;
+    //private GameObject playerStartPos;
     
 
     private void Start()
     {
         IsGameRunning = true;
-        playerStartPos = FindAnyObjectByType<PlayerStartPos>().gameObject;
     }
 
     private void Update()
@@ -114,7 +113,10 @@ public class GameStateController : MonoBehaviour
 
     public void NextLevel()
     {
-        Destroy(playerStartPos);
+
+        PlayerPrefs.SetInt("LevelCheck", 0);
+        PlayerPrefs.SetInt("LevelPoints", 0);
+
         Time.timeScale = 1f;
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -140,7 +142,9 @@ public class GameStateController : MonoBehaviour
         Time.timeScale = 1f;
         IsGamePaused = false;
 
-        Destroy(playerStartPos);
+        PlayerPrefs.SetInt("LevelCheck", 0);
+        PlayerPrefs.SetInt("LevelPoints", 0);
+
         SceneManager.LoadScene("Menu");
     }
 }
