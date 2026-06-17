@@ -34,6 +34,10 @@ public class CheckPoint : MonoBehaviour
 
             PlayerPrefs.SetInt("LevelCheck", pointIndex);
             PlayerPrefs.SetInt("LevelPoints", (int)scoreManager.currentScore);
+            PlayerPrefs.SetInt("LevelTime", (int)scoreManager.GetGameTime());
+            PlayerPrefs.SetInt("LevelCollected", scoreManager.collected);
+            PlayerPrefs.SetInt("LevelDestroyed", scoreManager.destroyed);
+
 
             coll.enabled = false;
         }

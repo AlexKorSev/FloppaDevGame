@@ -64,12 +64,27 @@ public class GameStateController : MonoBehaviour
             int destroys = scoreManager.destroyed;
             float finalResult = scoreManager.currentScore;
 
+            float fastTime = ScoreManager.GetFastTime(sceneName);
+            int maxDestroyed = ScoreManager.GetMaxDestroyed(sceneName);
+            int maxCollected = ScoreManager.GetMaxCollected(sceneName);
             float maxPoints = ScoreManager.GetMaxPoints(sceneName);
 
-            tmpObject.text = "Результаты:\nВремя прохождения - " + playTime.ToString("F0") 
-                + "\nСобрано фрагментов - " + fragments 
-                + "\nУстранено программ - " + destroys 
-                + "\n\nИтог - " + finalResult;
+            string firstSentence = "Результаты:\nВремя прохождения - " + playTime.ToString("F0") + " сек.";
+            string bonusSentence = "";
+            if (playTime <= fastTime)
+            {
+                finalResult += 150f;
+                bonusSentence = "\nБонус за быстрое прохождение - 150";
+            }
+            string secondSentence = "\nСобрано фрагментов - " + fragments + " / " + maxCollected;
+            string thirdSentence = "";
+            if (maxDestroyed != 0)
+            {
+                thirdSentence = "\nУстранено программ - " + destroys + " / " + maxDestroyed;
+            }
+            string fourthSentence = "\n\nИтог - " + finalResult + " / " + maxPoints;
+
+            tmpObject.text = firstSentence + bonusSentence + secondSentence + thirdSentence + fourthSentence;
 
             // Deciding and placing needed medal
             if (finalResult < maxPoints * 0.4)
@@ -78,7 +93,7 @@ public class GameStateController : MonoBehaviour
 
                 UpdatePrefs(sceneName, 1);
             }
-            else if (finalResult < maxPoints * 0.7)
+            else if (finalResult < maxPoints * 0.75)
             {
                 medalImagePlace.sprite = medalSprites[1];
 
@@ -116,6 +131,9 @@ public class GameStateController : MonoBehaviour
 
         PlayerPrefs.SetInt("LevelCheck", 0);
         PlayerPrefs.SetInt("LevelPoints", 0);
+        PlayerPrefs.SetInt("LevelTime", 0);
+        PlayerPrefs.SetInt("LevelCollected", 0);
+        PlayerPrefs.SetInt("LevelDestroyed", 0);
 
         Time.timeScale = 1f;
 
@@ -144,6 +162,9 @@ public class GameStateController : MonoBehaviour
 
         PlayerPrefs.SetInt("LevelCheck", 0);
         PlayerPrefs.SetInt("LevelPoints", 0);
+        PlayerPrefs.SetInt("LevelTime", 0);
+        PlayerPrefs.SetInt("LevelCollected", 0);
+        PlayerPrefs.SetInt("LevelDestroyed", 0);
 
         SceneManager.LoadScene("Menu");
     }

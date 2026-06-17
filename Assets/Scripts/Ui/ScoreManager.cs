@@ -16,15 +16,15 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreLabel;
     [SerializeField] private TextMeshProUGUI timerLabel;
 
-    //[Header("Звук")]
-    //[SerializeField] private AudioSource audioSource;
-    //[SerializeField] private AudioClip coinClip;
+    private static float[] LevelMax = new float[] { 600f, 1700f, 1850f };
 
-    private static float Level1Max = 500f;
-    private static float Level2Max = 1700f;
-    private static float Level3Max = 1750f;
+    private static int[] LevelCollectedMax = new int[] { 9, 9, 10 };
 
-    
+    private static int[] LevelDestroyedMax = new int[] { 0, 11, 12 };
+
+    private static float[] FastTime = new float[] { 100f, 225f, 275f };
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -32,9 +32,12 @@ public class ScoreManager : MonoBehaviour
             Instance = this;
             collected = 0; destroyed = 0;
         }
-        if (PlayerPrefs.HasKey("LevelPoints"))
+        if (PlayerPrefs.HasKey("LevelPoints") && PlayerPrefs.HasKey("LevelCheck"))
         {
             currentScore = PlayerPrefs.GetInt("LevelPoints");
+            gameTime = PlayerPrefs.GetInt("LevelTime");
+            collected = PlayerPrefs.GetInt("LevelCollected");
+            destroyed = PlayerPrefs.GetInt("LevelDestroyed");
         }
     }
 
@@ -80,15 +83,63 @@ public class ScoreManager : MonoBehaviour
     {
         if (levelName == "Level1")
         {
-            return Level1Max;
+            return LevelMax[0];
         }
         else if (levelName == "Level2")
         {
-            return Level2Max;
+            return LevelMax[1];
         }
         else
         {
-            return Level3Max;
+            return LevelMax[2];
+        }
+    }
+
+    public static int GetMaxCollected(string levelName)
+    {
+        if (levelName == "Level1")
+        {
+            return LevelCollectedMax[0];
+        }
+        else if (levelName == "Level2")
+        {
+            return LevelCollectedMax[1];
+        }
+        else
+        {
+            return LevelCollectedMax[2];
+        }
+    }
+
+    public static int GetMaxDestroyed(string levelName)
+    {
+        if (levelName == "Level1")
+        {
+            return LevelDestroyedMax[0];
+        }
+        else if (levelName == "Level2")
+        {
+            return LevelDestroyedMax[1];
+        }
+        else
+        {
+            return LevelDestroyedMax[2];
+        }
+    }
+
+    public static float GetFastTime(string levelName)
+    {
+        if (levelName == "Level1")
+        {
+            return FastTime[0];
+        }
+        else if (levelName == "Level2")
+        {
+            return FastTime[1];
+        }
+        else
+        {
+            return FastTime[2];
         }
     }
 }

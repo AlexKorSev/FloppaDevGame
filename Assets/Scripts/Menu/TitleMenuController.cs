@@ -25,6 +25,9 @@ public class TitleMenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("LevelCheck", 0);
         PlayerPrefs.SetInt("LevelPoints", 0);
+        PlayerPrefs.SetInt("LevelTime", 0);
+        PlayerPrefs.SetInt("LevelCollected", 0);
+        PlayerPrefs.SetInt("LevelDestroyed", 0);
         SceneManager.LoadScene(level);
     }
 
