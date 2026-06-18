@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c85017f089634b94f80bb479a004c6f1
   - enabled: 1
+    path: Assets/Scenes/Prolog.unity
+    guid: dd5f45f7a2f6885498cb3c81c7406475
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 8ea30698da7ce6d4f8d64694c737d14a
   - enabled: 1
@@ -20,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 50445ee3fdeef1844b50e76e952b13b7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 4205daab2a7ddfa45858ddd8fe87be63
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

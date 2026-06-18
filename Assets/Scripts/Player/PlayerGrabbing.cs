@@ -17,7 +17,7 @@ public class PlayerGrabbing : MonoBehaviour
 
         if (rayCheck.collider != null && rayCheck.collider.CompareTag("Box"))
         {
-            if (Input.GetButton("Fire2") && grabbedObject == null)
+            if ((Input.GetButton("Fire2") || Input.GetButton("Fire3")) && grabbedObject == null)
             {
                 if (!keyPressed)
                 {
@@ -27,7 +27,7 @@ public class PlayerGrabbing : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetButton("Fire2") && grabbedObject != null)
+        else if ((Input.GetButton("Fire2") || Input.GetButton("Fire3")) && grabbedObject != null)
         {
             if (!keyPressed)
             {

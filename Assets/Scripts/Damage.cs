@@ -76,11 +76,11 @@ public class Damage : MonoBehaviour
 
         if (collision.gameObject.CompareTag("WeakWall"))
         {
-            Debug.Log("Шаг 1: Тег WeakWall подтвержден.");
+            //Debug.Log("Шаг 1: Тег WeakWall подтвержден.");
 
             if (collision.gameObject.TryGetComponent<WallDestruction>(out var wall))
             {
-                Debug.Log("Шаг 2: Компонент WallDestruction найден! Запускаю взрыв...");
+                //Debug.Log("Шаг 2: Компонент WallDestruction найден! Запускаю взрыв...");
 
                 Vector2 dir = Vector2.right;
                 if (TryGetComponent<Rigidbody2D>(out var rb))

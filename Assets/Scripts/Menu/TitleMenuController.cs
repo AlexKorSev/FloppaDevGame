@@ -7,6 +7,8 @@ public class TitleMenuController : MonoBehaviour
     [SerializeField] public Image[] images;
     [SerializeField] public Sprite[] sprites;
 
+    [SerializeField] private GameObject creditsButton;
+
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Level1Result") &&
@@ -45,6 +47,11 @@ public class TitleMenuController : MonoBehaviour
         int level1 = PlayerPrefs.GetInt("Level1Result");
         int level2 = PlayerPrefs.GetInt("Level2Result");
         int level3 = PlayerPrefs.GetInt("Level3Result");
+
+        if (level1 + level2 + level3 > 0)
+        {
+            creditsButton.SetActive(true);
+        }
 
         images[0].sprite = sprites[level1];
         images[1].sprite = sprites[level2];

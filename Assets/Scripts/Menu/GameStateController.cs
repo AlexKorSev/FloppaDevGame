@@ -11,6 +11,7 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject completeLevelScreen;
+    [SerializeField] private GameObject oprionsScreen;
 
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] public TextMeshProUGUI tmpObject;
@@ -41,14 +42,22 @@ public class GameStateController : MonoBehaviour
 
     public void ResumeGame()
     {
-        if (pauseMenuPanel != null) pauseMenuPanel.SetActive(false);
+        if (pauseMenuPanel != null)
+        {
+            pauseMenuPanel.SetActive(false);
+            oprionsScreen.SetActive(false);
+        }
+            
         Time.timeScale = 1f;
         IsGamePaused = false;
     }
 
     public void PauseGame()
     {
-        if (pauseMenuPanel != null) pauseMenuPanel.SetActive(true);
+        if (pauseMenuPanel != null)
+        {
+            pauseMenuPanel.SetActive(true);
+        }
         Time.timeScale = 0f;
         IsGamePaused = true;
     }

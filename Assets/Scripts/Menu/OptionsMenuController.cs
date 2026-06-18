@@ -54,6 +54,7 @@ public class OptionsMenuController : MonoBehaviour
     public void EraseData()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
     private void OnDisable()

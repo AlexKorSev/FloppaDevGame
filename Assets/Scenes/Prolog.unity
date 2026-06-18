@@ -615,7 +615,7 @@ AudioSource:
   m_GameObject: {fileID: 981638723}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -9045769152247663266, guid: d6d9c9638fa53a646a9e9657ed672ab5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 902c08edc4dce8049a7d6f449853bf23, type: 3}
   m_PlayOnAwake: 1
@@ -931,11 +931,11 @@ AudioSource:
   m_GameObject: {fileID: 1203135963}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7246602215173230261, guid: d6d9c9638fa53a646a9e9657ed672ab5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: -2.66
   Loop: 0
   Mute: 0
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   typingSound: {fileID: 8300000, guid: 2fddcf94631fe094e80321e6be0902f0, type: 3}
   minPitch: 0.85
   maxPitch: 1.15
-  typeSpeed: 0.03
+  typeSpeed: 0.02
   glitchSound: {fileID: 8300000, guid: b13298c7845b1cf40a6744f2e3ea320b, type: 3}
   glitchChars: '!@#$%^&*()_+{}|[]<>?010101XYZ'
   nextSceneName: Level1

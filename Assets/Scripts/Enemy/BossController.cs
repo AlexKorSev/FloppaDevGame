@@ -19,6 +19,7 @@ public class BossController : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
+    private Animator anim;
 
     [Header("Transition")]
     [SerializeField] private float iFramesDuration;
@@ -40,6 +41,7 @@ public class BossController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRend = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
         ifPhase2 = false;
         walkBreak = false;
@@ -54,6 +56,8 @@ public class BossController : MonoBehaviour
     {
         ManageHealth();
         ManageBehavior();
+
+        anim.SetBool("IsJumping", !IsGrounded());
 
         // Phase 2 random jump (only when walking, not during transition)
         if (ifPhase2 && !walkBreak && IsGrounded() && Time.time >= nextJumpTime)
@@ -70,6 +74,7 @@ public class BossController : MonoBehaviour
             // Determine movement direction
             float direction = (currentPoint == pointB.transform) ? 1f : -1f;
             // Move horizontally, keep vertical velocity (to allow jumping)
+
             rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
 
             // Patrol point switching
@@ -84,9 +89,6 @@ public class BossController : MonoBehaviour
                 currentPoint = pointB.transform;
             }
         }
-
-        // Phase 2 logic: jump handling is done in Update
-        // (removed the incomplete ifPhase2 block from original)
     }
 
     private void ManageHealth()
@@ -94,7 +96,12 @@ public class BossController : MonoBehaviour
         if (health <= 0)
         {
             endGates.gameObject.SetActive(false);
-            Destroy(gameObject);
+            walkBreak = true;
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            boxCollider.enabled = false;
+
+            anim.SetBool("IsDead", true);
 
         }
         if (health <= (maxHealth / 2) && !ifPhase2)
@@ -149,6 +156,7 @@ public class BossController : MonoBehaviour
 
         //Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
         //return hit.collider != null;
+        
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 

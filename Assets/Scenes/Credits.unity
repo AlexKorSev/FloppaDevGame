@@ -615,7 +615,7 @@ AudioSource:
   m_GameObject: {fileID: 981638723}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -9045769152247663266, guid: d6d9c9638fa53a646a9e9657ed672ab5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 902c08edc4dce8049a7d6f449853bf23, type: 3}
   m_PlayOnAwake: 1
@@ -931,11 +931,11 @@ AudioSource:
   m_GameObject: {fileID: 1203135963}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7246602215173230261, guid: d6d9c9638fa53a646a9e9657ed672ab5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: -2.66
   Loop: 0
   Mute: 0
@@ -1082,21 +1082,22 @@ MonoBehaviour:
     triggerGlitchAfter: 0
     waitTimeAfter: 1.2
   - text: "\u041F\u0420\u0418 \u041F\u041E\u0414\u0414\u0415\u0420\u0416\u041A\u0415:
-      \u0423\u0440\u0430\u043B\u044C\u0441\u043A\u0438\u0439 \u0444\u0435\u0434\u0435\u0440\u0430\u043B\u044C\u043D\u044B\u0439
-      \u0443\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442"
+      \n\u0418\u0441\u0430\u043A\u043E\u0432 \u0414\u043C\u0438\u0442\u0440\u0438\u0439
+      \u041D\u0438\u043A\u043E\u043B\u0430\u0435\u0432\u0438\u0447\n\u0423\u0440\u0430\u043B\u044C\u0441\u043A\u0438\u0439
+      \u0444\u0435\u0434\u0435\u0440\u0430\u043B\u044C\u043D\u044B\u0439 \u0443\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442"
     showLoadingBefore: 1
     triggerGlitchAfter: 0
     waitTimeAfter: 1.2
   - text: "\u041E\u0421\u041E\u0411\u0410\u042F \u0411\u041B\u0410\u0413\u041E\u0414\u0410\u0420\u041D\u041E\u0421\u0422\u042C:
-      \u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u044F\u043C
-      \u0438 \u043A\u0443\u0440\u0430\u0442\u043E\u0440\u0430\u043C\\n\u0420\u043E\u0434\u043D\u044B\u043C
-      \u0438 \u0434\u0440\u0443\u0437\u044C\u044F\u043C \u0437\u0430 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443"
+      \u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u044F\u043C,
+      \u0440\u043E\u0434\u043D\u044B\u043C \u0438 \u0434\u0440\u0443\u0437\u044C\u044F\u043C
+      \u0437\u0430 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443"
     showLoadingBefore: 0
     triggerGlitchAfter: 0
     waitTimeAfter: 1.2
   - text: "\u0421\u041F\u0410\u0421\u0418\u0411\u041E \u0417\u0410 \u0418\u0413\u0420\u0423."
     showLoadingBefore: 0
-    triggerGlitchAfter: 1
+    triggerGlitchAfter: 0
     waitTimeAfter: 1.2
 --- !u!4 &1203135966
 Transform:
